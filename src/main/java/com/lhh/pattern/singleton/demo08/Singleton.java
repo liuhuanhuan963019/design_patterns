@@ -8,10 +8,16 @@ import java.io.Serializable;
  * @date 2022/4/15 16:00
  * @Description
  */
-public class Singleton implements Serializable {
+public class Singleton {
+    private static boolean flag;
 
     private Singleton() {
-
+        synchronized (Singleton.class) {
+            if (flag) {
+                throw new RuntimeException();
+            }
+        }
+        flag = true;
     }
 
     private static class SingletonHolder {
