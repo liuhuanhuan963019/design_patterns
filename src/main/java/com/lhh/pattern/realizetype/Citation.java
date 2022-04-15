@@ -1,25 +1,27 @@
 package com.lhh.pattern.realizetype;
 
+import java.io.Serializable;
+
 /**
  * @author liuhuanhuan
  * @version 1.0
  * @date 2022/4/15 21:00
  * @Description
  */
-public class Citation implements Cloneable{
+public class Citation implements Cloneable, Serializable {
 
-    private String name;
+    private Student stu;
 
-    public String getName() {
-        return name;
+    public Student getStu() {
+        return stu;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setStu(Student stu) {
+        this.stu = stu;
     }
 
-    public void show() {
-        System.out.println(name + "同学成绩优异，特发此状，以此鼓励");
+    void show() {
+        System.out.println(stu.getName() + "同学成绩优异，特发此状，以此鼓励");
     }
 
     @Override
