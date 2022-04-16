@@ -1,4 +1,4 @@
-package com.lhh.pattern.realizetype;
+package com.lhh.pattern.prototype;
 
 /**
  * @author liuhuanhuan
