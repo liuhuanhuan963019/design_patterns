@@ -1,0 +1,74 @@
+package com.lhh.pattern.memmeto.white_box;
+
+/**
+ * @author liuhuanhuan
+ * @version 1.0
+ * @date 2022/4/22 21:32
+ * 备忘录角色类
+ */
+public class GameRole {
+
+    private int vit;  //生命力
+
+    private int atk; //攻击力
+
+    private int def;   //防御力
+
+    // 初始化内部状态
+    public void initState() {
+        this.vit = 100;
+        this.def = 100;
+        this.atk = 100;
+    }
+
+    // 战斗过程
+    public void fight() {
+        this.vit = 0;
+        this.def = 0;
+        this.atk = 0;
+    }
+
+    //保存状态
+    public RoleStateMemento saveState() {
+        return new RoleStateMemento(vit,def,atk);
+    }
+
+    // 回复角色状态
+    public void recoverState(RoleStateMemento role) {
+        //将备忘录中的存储对象赋值给当前对象
+        this.vit = role.getVit();
+        this.atk = role.getAtk();
+        this.def = role.getDef();
+
+    }
+
+    //展示状态功能
+    public void stateDisplay() {
+        System.out.println("角色生命力"+vit);
+        System.out.println("角色攻击力"+atk);
+        System.out.println("角色防御力"+def);
+    }
+    public int getVit() {
+        return vit;
+    }
+
+    public void setVit(int vit) {
+        this.vit = vit;
+    }
+
+    public int getAtk() {
+        return atk;
+    }
+
+    public void setAtk(int atk) {
+        this.atk = atk;
+    }
+
+    public int getDef() {
+        return def;
+    }
+
+    public void setDef(int def) {
+        this.def = def;
+    }
+}
